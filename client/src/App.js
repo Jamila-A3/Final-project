@@ -1,21 +1,36 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+// import Login from "./components/pages/Login";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./components/pages/Home";
+// import About from "./components/pages/About";
+import Tours from "./components/pages/Tours";
+import Contact from "./components/pages/Contact";
+import Login from "./components/pages/Login";
+import SearchResultContainer from "./components/pages/SearchResultContainer";
+// import AuthService from './components/pages/AuthService';
+// import withAuth from './components/pages/withAuth';
+// const Auth = new AuthService();
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+function App(){
+  return (
+    <Router>
+      <div>
+        <Navbar/>
+        <Route exact path="/" component={Home} />
+        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/tours" component={Tours} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route path="/searchresultscontainer" component={SearchResultContainer} />
+        {/* <Route path="/contact" component={AuthService} /> */}
+        {/* <Route path="/contact" component={withAuth} /> */}
       </div>
-    );
-  }
+    </Router>
+  )
+      
 }
+
 
 export default App;
